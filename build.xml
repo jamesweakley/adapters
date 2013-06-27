@@ -4,24 +4,6 @@
         This is a collection of adapters which have previously shipped with Diffusion, but now are available separately.
     </description>
 
-    <property name="twitter.src.dir" value="twitter/src" />
-    <property name="twitter.jar.name" value="twitter_adapter.jar" />
-
-    <property name="rss.src.dir" value="rss/src" />
-    <property name="rss.jar.name" value="rss_adapter.jar" />
-
-    <property name="mail.src.dir" value="mail/src" />
-    <property name="mail.jar.name" value="mail_adapter.jar" />
-
-    <property name="cdc.src.dir" value="cdc/src" />
-    <property name="cdc.jar.name" value="cdc_adapter.jar" />
-
-    <property name="c2dm.src.dir" value="c2dm/src" />
-    <property name="c2dm.jar.name" value="c2dm_adapter.jar" />
-
-    <property name="apns.src.dir" value="apns/src" />
-    <property name="apns.jar.name" value="apns_adapter.jar" />
-
     <path id="libpath">
         <fileset dir="lib">
             <include name="**/*.jar" />
@@ -30,12 +12,35 @@
 
     <target name="default" depends="prepare,twitter,rss,mail,cdc,c2dm,apns" />
 
-    <target name="twitter" depends="-twitter-package" />
-    <target name="rss" depends="-rss-package" />
-    <target name="mail" depends="-mail-package" />
-    <target name="cdc" depends="-cdc-package" />
-    <target name="c2dm" depends="-c2dm-package" />
-    <target name="apns" depends="-apns-package" />
+    <target name="twitter" depends="prepare">
+      <compile-adapter name="twitter"/>
+      <package-adapter name="twitter"/>
+    </target>
+
+    <target name="rss" depends="prepare">
+      <compile-adapter name="rss"/>
+      <package-adapter name="rss"/>
+    </target>
+
+    <target name="mail" depends="prepare">
+      <compile-adapter name="mail"/>
+      <package-adapter name="mail"/>
+    </target>
+
+    <target name="cdc" depends="prepare">
+      <compile-adapter name="cdc"/>
+      <package-adapter name="cdc"/>
+    </target>
+
+    <target name="c2dm" depends="prepare">
+      <compile-adapter name="c2dm"/>
+      <package-adapter name="c2dm"/>
+    </target>
+
+    <target name="apns" depends="prepare">
+      <compile-adapter name="apns"/>
+      <package-adapter name="apns"/>
+    </target>
 
     <target name="prepare">
         <mkdir dir="bin"/>
@@ -48,82 +53,23 @@
         </delete>
     </target>
 
-    <!-- Twitter -->
-    <target name="-twitter-compile" depends="prepare">
-        <javac source="1.7" destdir="bin" srcdir="${twitter.src.dir}">
-            <classpath refid="libpath" />
+    <macrodef name="compile-adapter" backtrace="true">
+      <attribute name="name"/>
+      <sequential>
+        <echo>Compiling adapter @{name}</echo>
+        <javac source="1.7" destdir="bin" srcdir="@{name}/src">
+          <classpath refid="libpath"/>
         </javac>
-    </target>
+      </sequential>
+    </macrodef>
 
-    <target name="-twitter-package" depends="-twitter-compile">
-        <jar jarfile="${twitter.jar.name}" basedir="bin">
-            <include name="**/twitter/**" />
+    <macrodef name="package-adapter" backtrace="true">
+      <attribute name="name"/>
+      <sequential>
+        <echo>Packaging adapter @{name}</echo>
+        <jar jarfile="@{name}_adapter.jar" basedir="bin">
+          <include name="**/@{name}/**"/>
         </jar>
-    </target>
-
-    <!-- RSS -->
-    <target name="-rss-compile" depends="prepare">
-        <javac source="1.7" destdir="bin" srcdir="${rss.src.dir}">
-            <classpath refid="libpath" />
-        </javac>
-    </target>
-
-    <target name="-rss-package" depends="-rss-compile">
-        <jar jarfile="${rss.jar.name}" basedir="bin">
-            <include name="**/rss/**" />
-        </jar>
-    </target>
-
-    <!-- Mail -->
-    <target name="-mail-compile" depends="prepare">
-        <javac source="1.7" destdir="bin" srcdir="${mail.src.dir}">
-            <classpath refid="libpath" />
-        </javac>
-    </target>
-
-    <target name="-mail-package" depends="-mail-compile">
-        <jar jarfile="${mail.jar.name}" basedir="bin">
-            <include name="**/mail/**" />
-        </jar>
-    </target>
-
-    <!-- CDC -->
-    <target name="-cdc-compile" depends="prepare">
-        <javac source="1.7" destdir="bin" srcdir="${cdc.src.dir}">
-            <classpath refid="libpath" />
-        </javac>
-    </target>
-
-    <target name="-cdc-package" depends="-cdc-compile">
-        <jar jarfile="${cdc.jar.name}" basedir="bin">
-            <include name="**/cdc/**" />
-        </jar>
-    </target>
-
-    <!-- C2DM -->
-    <target name="-c2dm-compile" depends="prepare">
-        <javac source="1.7" destdir="bin" srcdir="${c2dm.src.dir}">
-            <classpath refid="libpath" />
-        </javac>
-    </target>
-
-    <target name="-c2dm-package" depends="-c2dm-compile">
-        <jar jarfile="${c2dm.jar.name}" basedir="bin">
-            <include name="**/c2dm/**" />
-        </jar>
-    </target>
-
-    <!-- APNS -->
-    <target name="-apns-compile" depends="prepare">
-        <javac source="1.7" destdir="bin" srcdir="${apns.src.dir}">
-            <classpath refid="libpath" />
-        </javac>
-    </target>
-
-    <target name="-apns-package" depends="-apns-compile">
-        <jar jarfile="${apns.jar.name}" basedir="bin">
-            <include name="**/apns/**" />
-        </jar>
-    </target>
-
+      </sequential>
+    </macrodef>
 </project>
