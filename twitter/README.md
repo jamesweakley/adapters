@@ -8,15 +8,15 @@ Using the Twitter adapter
 
 1. Instantiate the adapter as follows:
 
-    TwitterServerConnection tc =
-        TwitterAdapter.getNamedConnection("myTwitterConnection",
-                                         TweetMessageLevel.ALL);
-    if(tc.isConnected()) {
-        tc.addListener(this);
-    } 
+        TwitterServerConnection tc =
+            TwitterAdapter.getNamedConnection("myTwitterConnection",
+                                              TweetMessageLevel.ALL);
+        if(tc.isConnected()) {
+            tc.addListener(this);
+        } 
 
 2. Print the tweet text within a received object:
 
-    public void handleTweet(Tweet tweet) { 
-        System.out.println(tweet.get("text")); 
-    }
+        public void handleTweet(Tweet tweet) { 
+            System.out.println(tweet.get("text")); 
+        }
