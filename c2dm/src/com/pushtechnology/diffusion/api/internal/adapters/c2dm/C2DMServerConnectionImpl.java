@@ -32,7 +32,6 @@ import com.pushtechnology.diffusion.xmlproperties.pushnotification.C2DMDefinitio
  * @author martincowie - created Nov 30, 2011
  * @since 4.1.0
  */
-@SuppressWarnings("deprecation")
 public class C2DMServerConnectionImpl implements C2DMServerConnectionImplMBean,
 C2DMServerConnection {
 

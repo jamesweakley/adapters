@@ -8,7 +8,6 @@ import com.pushtechnology.diffusion.api.APIException;
  * @author martincowie - created Nov 30, 2011
  * @since 4.1
  */
-@Deprecated
 public class C2DMException extends APIException {
     
     /**

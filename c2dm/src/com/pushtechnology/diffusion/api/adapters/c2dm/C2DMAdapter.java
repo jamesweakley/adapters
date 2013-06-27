@@ -10,7 +10,6 @@ import com.pushtechnology.diffusion.api.internal.adapters.c2dm.C2DMAdapterInstan
  * @author martincowie - created Nov 30, 2011
  * @since 4.1
  */
-@Deprecated
 public final class C2DMAdapter {
     
     /**

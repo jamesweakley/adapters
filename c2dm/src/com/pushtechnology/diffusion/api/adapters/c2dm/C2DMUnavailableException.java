@@ -9,7 +9,6 @@ import javax.net.ssl.HttpsURLConnection;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public final class C2DMUnavailableException extends C2DMException {
     
     /**

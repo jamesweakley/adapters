@@ -13,7 +13,6 @@ import com.pushtechnology.diffusion.xmlproperties.pushnotification.C2DMDefinitio
  * @author martincowie - created Nov 30, 2011
  * @since 4.1
  */
-@Deprecated
 public interface C2DMServerConnection {
 
     /**
