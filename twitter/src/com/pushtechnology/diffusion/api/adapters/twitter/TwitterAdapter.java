@@ -9,7 +9,6 @@ import com.pushtechnology.diffusion.api.internal.adapters.twitter.TwitterAdapter
  * @author Antonio Di Ferdinando - created 20 Dec 2011
  * @since 4.1
  */
-@Deprecated
 public final class TwitterAdapter {
 
     /**

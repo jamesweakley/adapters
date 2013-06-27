@@ -31,7 +31,6 @@ import com.pushtechnology.diffusion.api.Logs;
 import com.pushtechnology.diffusion.api.adapters.twitter.TweetMessageLevel;
 import com.pushtechnology.diffusion.xmlproperties.twitter.Backoff;
 
-@SuppressWarnings("deprecation")
 public final class JsonTwitterProcessor
 extends Thread
 implements TwitterProcessor {

@@ -14,7 +14,6 @@ import com.pushtechnology.diffusion.xmlproperties.twitter.TwitterDefinition;
  * 
  * @author Antonio Di Ferdinando - created 20 Dec 2011
  */
-@SuppressWarnings("deprecation")
 public final class TwitterAdapterInstance {
 
     /**

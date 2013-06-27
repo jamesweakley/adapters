@@ -7,7 +7,7 @@ package com.pushtechnology.diffusion.api.internal.adapters.twitter;
  * @since 4.1
  */
 public final class BackOff {
-    
+
     /**
      * True if initial backoff should be zero
      */

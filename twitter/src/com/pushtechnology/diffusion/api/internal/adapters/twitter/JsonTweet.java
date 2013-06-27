@@ -18,7 +18,6 @@ import com.pushtechnology.diffusion.api.adapters.twitter.Tweet;
  * @since 4.1
  * 
  */
-@SuppressWarnings("deprecation")
 public final class JsonTweet implements Tweet {
     
     private static final long serialVersionUID = 1L;

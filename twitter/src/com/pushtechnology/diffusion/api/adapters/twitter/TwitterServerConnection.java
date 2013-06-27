@@ -8,7 +8,6 @@ import com.pushtechnology.diffusion.xmlproperties.twitter.TwitterDefinition;
  * @author Antonio Di Ferdinando - created 24 Dec 2011
  * @since 4.1
  */
-@Deprecated
 public interface TwitterServerConnection {
     
     /**

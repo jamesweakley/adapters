@@ -6,7 +6,6 @@ package com.pushtechnology.diffusion.api.adapters.twitter;
  * @author pwalsh - created 25 Jan 2012
  * @since 4.1
  */
-@Deprecated
 public enum TweetMessageLevel {
     
     /**

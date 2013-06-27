@@ -7,7 +7,6 @@ package com.pushtechnology.diffusion.api.adapters.twitter;
  * @author Antonio Di Ferdinando - created Jan 4, 2012
  * @since 4.1
  */
-@Deprecated
 public interface TwitterListener {
 
     /**

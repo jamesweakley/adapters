@@ -9,7 +9,6 @@ import java.util.Set;
  * @author Antonio Di Ferdinando - created 22 Dec 2011
  * @since 4.1
  */
-@Deprecated
 public interface Tweet extends Serializable {
 
     /**

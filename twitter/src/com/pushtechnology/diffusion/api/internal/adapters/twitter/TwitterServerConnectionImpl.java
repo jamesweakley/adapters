@@ -25,7 +25,6 @@ import com.pushtechnology.diffusion.xmlproperties.twitter.TwitterDefinition;
  * @author antonio - created Jan 5, 2012
  * @since 4.1
  */
-@SuppressWarnings("deprecation")
 public final class TwitterServerConnectionImpl 
 implements 
 Runnable,
