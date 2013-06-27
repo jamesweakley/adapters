@@ -1,16 +1,14 @@
-Google Cloud 2 Device Messaging Services
-========================================
+# Google Cloud 2 Device Messaging Services
 
 Provides a simple means of integrating with Google Cloud 2 Device Messaging Services.
 
-Using the C2DM adapter
-----------------------
+## Using the C2DM adapter
 
-1. Obtain the C2DM connection
-   The connection to the APNS servers is over an HTTPS connection. The connection configuration
-   is held in the Diffusion™ configuration file PushNotification.xml.
+### Obtain the C2DM connection
+The connection to the APNS servers is over an HTTPS connection. The connection configuration
+is held in the Diffusion™ configuration file PushNotification.xml.
    
-   The configuration is constucted as follows:
+The configuration is constucted as follows:
 
 <table>
   <tr>
@@ -31,20 +29,22 @@ Using the C2DM adapter
   </tr>
 </table>
 
-  Java developers wishing to send C2DM messages via the adapter must first obtain a connection
-  to the C2DM servers with the following code:
+Java developers wishing to send C2DM messages via the adapter must first obtain a connection
+to the C2DM servers with the following code:
 
     C2DMServerConnection cnx = C2DMAdapter.getNamedConnection( definitionName );
 
-  This will place a connection (or reuse an existing connection).
+This will place a connection (or reuse an existing connection).
   
-2. Writing apps to receive C2DM messages
-   Google hosts [documentation on writing C2DM aware applications](http://code.google.com/android/c2dm/#writing_apps)
+### Writing apps to receive C2DM messages
+
+Google hosts [documentation on writing C2DM aware applications](http://code.google.com/android/c2dm/#writing_apps)
    
-3. Composing the message
-   Messages sent via C2DM comprise a dictionary of named values. Some values are reserved for
-   C2DM transmission purposes and are provided automatically by the C2DM adapter. Google
-   recommends prefixing solution specific values with data. to disambiguate.
+### Composing the message
+
+Messages sent via C2DM comprise a dictionary of named values. Some values are reserved for
+C2DM transmission purposes and are provided automatically by the C2DM adapter. Google
+recommends prefixing solution specific values with data. to disambiguate.
    
 <table>
   <tr>
@@ -72,5 +72,68 @@ Using the C2DM adapter
     <td>Authorization</td>
     <td>Header with a ClientLogin Auth token. The cookie must be associated with the c2dm
     service. Required.</td>
+  </tr>
+</table>
+
+Developers compose a message for transmission using a `Map<String,String`:
+  
+    Map<String,String> params = new HashMap<String,String>();
+    params.put("data.payload", "A test message for the handset" );
+
+### Dispatch the message
+
+Once a connection is in place and a message is ready, the message can be transmitted:
+
+    String messageID = cnx.send(clientRegistrationID, params);
+    
+The arguments are the handset registration-id and the parameters, respectively. A
+message identifier string is returned if the message is successfully queued by C2DM.
+In case of failure (e.g. message too large, invalid registration-id supplied, C2DM servers
+overloaded) an exception will be thrown.
+
+### JMX monitoring
+
+On instantiation, the C2DMServerConnection object registers an MBean in the standard MBean server.
+
+C2DMServerConnection exposes the following:
+
+<table>
+  <tr>
+    <th>Attributes</th>
+  </tr>
+  <tr>
+    <td>MessagesSent</td>
+    <td>The number of messages sent via this object</td>
+  </tr>
+  <tr>
+    <td>LastMessageSent</td>
+    <td>java.util.Date of the last message sent</td>
+  </tr>
+  <tr>
+    <td>DefinitionName</td>
+    <td>The symbolic name used to identify this connection in the configuration files</td>
+  </tr>
+  <tr>
+    <td>DefinitionEmailAddress</td>
+    <td>The email address used to authenticate with the Google C2DM servers</td>
+  </tr>
+  <tr>
+    <td>CollapseKey</td>
+    <td>The conflation/collapse key used by this connection</td>
+  </tr>
+  <tr>
+    <td>WhenGoogleAuthenticated</td>
+    <td>The timestamp of the last authentication exchange</td>
+  </tr>
+  <tr>
+    <td>GoogleAuthenticated</td>
+    <td>true if this connector has correctly authenticated with the C2DM servers</td>
+  </tr>
+  <tr>
+   <th>Actions</th>
+  </tr>
+  <tr>
+    <td>disconnect</td>
+    <td>Explicitly disconnect from the C2DM servers</td>
   </tr>
 </table>
