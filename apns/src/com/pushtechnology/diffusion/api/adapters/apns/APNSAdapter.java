@@ -10,7 +10,6 @@ import com.pushtechnology.diffusion.api.internal.adapters.apns.APNSAdapterInstan
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public final class APNSAdapter {
     /**
      * Class singleton

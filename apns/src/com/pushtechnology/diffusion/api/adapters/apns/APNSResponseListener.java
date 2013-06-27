@@ -7,7 +7,6 @@ package com.pushtechnology.diffusion.api.adapters.apns;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public interface APNSResponseListener {
     
     /**

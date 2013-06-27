@@ -6,7 +6,6 @@ package com.pushtechnology.diffusion.api.adapters.apns;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public enum ErrorResponseCode {
 
     NO_ERROR(0, "No errors encountered"),

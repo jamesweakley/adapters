@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.Date;
 
 import com.pushtechnology.diffusion.api.internal.adapters.apns.APNSCommon;
-import com.pushtechnology.diffusion.api.json.Dictionary;
+import com.pushtechnology.diffusion.api.internal.adapters.apns.JSONDictionary;
 
 /**
  * Feedback from APNS that an app has been uninstalled from a device, and
@@ -15,7 +15,6 @@ import com.pushtechnology.diffusion.api.json.Dictionary;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public final class APNSFeedback {
     private Date theTimestamp;
     private byte[] theDeviceToken;
@@ -77,7 +76,7 @@ public final class APNSFeedback {
      * @return A JSON dictionary string
      */
     public String toString() {
-        return new Dictionary(
+        return new JSONDictionary(
             "timestamp",theTimestamp.toString(),
             "deviceToken",APNSCommon.toString(theDeviceToken)).toString();
     }

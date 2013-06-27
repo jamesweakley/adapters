@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.pushtechnology.diffusion.api.json.Dictionary;
+import com.pushtechnology.diffusion.api.internal.adapters.apns.JSONDictionary;
 
 /**
  * A POJO holding an error response from an the APNS servers.
@@ -12,7 +12,6 @@ import com.pushtechnology.diffusion.api.json.Dictionary;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public final class APNSResponse {
     
     private int theMessageIdentifier;
@@ -80,7 +79,7 @@ public final class APNSResponse {
      * @since 4.1
      */
     public String toString() {
-        return new Dictionary(
+        return new JSONDictionary(
             "status",theStatus,
             "messageIdentifier",theMessageIdentifier).toString();
     }

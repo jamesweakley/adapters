@@ -1,15 +1,14 @@
-package com.pushtechnology.diffusion.api.json;
+package com.pushtechnology.diffusion.api.internal.adapters.apns;
 
 import com.pushtechnology.diffusion.api.Logs;
-import com.pushtechnology.diffusion.api.json.Array;
-import com.pushtechnology.diffusion.api.json.Dictionary;
+import com.pushtechnology.diffusion.api.internal.adapters.apns.JSONArray;
+import com.pushtechnology.diffusion.api.internal.adapters.apns.JSONDictionary;
 
 /**
  * Functions common to both Array and Dictionary
  * @author martincowie
  *
  */
-@Deprecated
 public class JSONCommon 
 {
 	
@@ -22,8 +21,8 @@ public class JSONCommon
 	{
 		if(	obj instanceof Number ||
 			obj instanceof Boolean ||
-			obj instanceof Dictionary ||
-			obj instanceof Array )
+			obj instanceof JSONDictionary ||
+			obj instanceof JSONArray )
 		{
 			// Return a 'naked' value literal
 			return obj.toString();
@@ -68,8 +67,8 @@ public class JSONCommon
 			value instanceof Boolean || 
 			value instanceof Character || 
 			value instanceof String || 
-			value instanceof Dictionary || 
-			value instanceof Array 
+			value instanceof JSONDictionary || 
+			value instanceof JSONArray 
 		);
 		
 	}

@@ -8,7 +8,6 @@ import java.util.Date;
  * @author martincowie
  * 
  */
-@Deprecated
 public interface APNSFeedbackConnectionImplMBean {
     /**
      * @return True if there is currently a connection in place

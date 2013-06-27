@@ -16,7 +16,6 @@ import javax.net.ssl.TrustManagerFactory;
 
 import com.pushtechnology.diffusion.api.APIException;
 import com.pushtechnology.diffusion.api.IOUtils;
-import com.pushtechnology.diffusion.api.json.Dictionary;
 
 /**
  * A store of commonly used constants and functions.
@@ -24,7 +23,6 @@ import com.pushtechnology.diffusion.api.json.Dictionary;
  * @author martincowie
  * 
  */
-@Deprecated
 public class APNSCommon {
 
     public static final String DEV_PUSH_HOST = "gateway.sandbox.push.apple.com";
@@ -62,11 +60,11 @@ public class APNSCommon {
      * 
      * Users wishing to build more complex payloads should use JSON Dictionary
      * and Array classes
-     * @see com.pushtechnology.diffusion.api.json.Array
-     * @see com.pushtechnology.diffusion.api.json.Dictionary
+     * @see com.pushtechnology.diffusion.api.internal.adapters.apns.JSONArray
+     * @see com.pushtechnology.diffusion.api.internal.adapters.apns.JSONDictionary
      */
     public static String composePayload(String alertString,String soundName,Integer badgeCount) {
-        Dictionary apsDict = new Dictionary();
+        JSONDictionary apsDict = new JSONDictionary();
 
         if (alertString!=null)
             apsDict.put("alert",alertString);
@@ -75,7 +73,7 @@ public class APNSCommon {
         if (badgeCount!=null)
             apsDict.put("badge",badgeCount);
 
-        return new Dictionary("aps",apsDict).toString();
+        return new JSONDictionary("aps",apsDict).toString();
     }
 
     /**

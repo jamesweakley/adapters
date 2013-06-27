@@ -12,7 +12,6 @@ import com.pushtechnology.diffusion.xmlproperties.pushnotification.APNSDefinitio
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
 public interface APNSServerConnection {
 
     /**

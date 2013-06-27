@@ -30,7 +30,6 @@ import com.pushtechnology.diffusion.xmlproperties.pushnotification.APNSDefinitio
  * @author mcowie - created 29 Nov 2011
  * @since 4.1.0
  */
-@Deprecated
 public final class APNSFeedbackConnectionImpl
 implements Runnable,APNSFeedbackConnectionImplMBean,APNSFeedbackConnection {
 

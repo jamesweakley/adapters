@@ -1,4 +1,4 @@
-package com.pushtechnology.diffusion.api.json;
+package com.pushtechnology.diffusion.api.internal.adapters.apns;
 
 import java.util.AbstractMap;
 import java.util.HashMap;
@@ -10,8 +10,7 @@ import java.util.Map;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
-public final class Dictionary extends HashMap<String,Object> {
+public final class JSONDictionary extends HashMap<String,Object> {
 
     /**
      * serial uid
@@ -28,7 +27,7 @@ public final class Dictionary extends HashMap<String,Object> {
      * If any value object is not an Array, Dictionary, String or a (boxed) Java
      * primitive
      */
-    public Dictionary(Object... objects) {
+    public JSONDictionary(Object... objects) {
         if (objects.length%2!=0)
             throw new IllegalArgumentException(
                 "Non-even number of arguments "+objects.length);

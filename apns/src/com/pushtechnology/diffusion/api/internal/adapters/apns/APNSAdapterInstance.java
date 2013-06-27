@@ -16,7 +16,6 @@ import com.pushtechnology.diffusion.xmlproperties.pushnotification.APNSDefinitio
  * @author pwalsh
  * @since 4.1
  */
-@Deprecated
 public final class APNSAdapterInstance {
 
     /**

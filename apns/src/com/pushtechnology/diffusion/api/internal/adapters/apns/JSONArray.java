@@ -1,4 +1,4 @@
-package com.pushtechnology.diffusion.api.json;
+package com.pushtechnology.diffusion.api.internal.adapters.apns;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -9,8 +9,7 @@ import java.util.LinkedList;
  * @author martincowie
  * @since 4.1
  */
-@Deprecated
-public final class Array extends LinkedList<Object> {
+public final class JSONArray extends LinkedList<Object> {
 
     /**
      * serial uid
@@ -26,7 +25,7 @@ public final class Array extends LinkedList<Object> {
      * @throws RuntimeException if any object is not an Array, Dictionary,
      * String or a (boxed) Java primitive
      */
-    public Array(final Object... objects) {
+    public JSONArray(final Object... objects) {
         super();
         for (int i = 0;i<objects.length;i++) {
             add(objects[i]);

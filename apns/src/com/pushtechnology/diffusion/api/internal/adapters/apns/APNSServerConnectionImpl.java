@@ -36,7 +36,6 @@ import com.pushtechnology.diffusion.xmlproperties.pushnotification.APNSDefinitio
  * @author martincowie
  * 
  */
-@Deprecated
 public final class APNSServerConnectionImpl implements Runnable,
 APNSServerConnectionImplMBean,APNSServerConnection {
     private static final int ADVANCED_MESSAGE = 1;
