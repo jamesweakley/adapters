@@ -24,7 +24,6 @@ import com.pushtechnology.diffusion.api.APIException;
  * <P>
  * A single session may be used to send many messages if required.
  */
-@Deprecated
 public final class SMTPMailSession {
 
     private SMTPServerDetails theServerDetails = null;

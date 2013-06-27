@@ -13,7 +13,6 @@ import com.pushtechnology.diffusion.xmlproperties.mail.MailServer;
  * These details can be used to specify the details of an SMTP server when
  * creating an {@link SMTPMailSession}.
  */
-@Deprecated
 public final class SMTPServerDetails {
 
     private MailServer theMailServer;
