@@ -25,7 +25,7 @@ Using the RSS adapter
             System.out.println(item.getGuid());
         }
         
-4. Poll an RSS Feed In order to use an RSS feed you would typically poll it at some regular interval.
+4. In order to use an RSS feed you would typically poll it at some regular interval.
    The `RSSTask` class is provided to simplify this type of processing. The following example shows a
    typical use of the `RSSTask` class. This initially connects to and loads from the feed and then when
    started will poll the feed every 30 seconds and update data as appropriate.
