@@ -14,7 +14,6 @@ import com.pushtechnology.diffusion.api.adapters.cdc.CDCRecord;
  * @author pwalsh
  *
  */
-@SuppressWarnings("deprecation")
 abstract class CDCRecordImpl implements CDCRecord {
 
     private final CDCHeader theHeader;

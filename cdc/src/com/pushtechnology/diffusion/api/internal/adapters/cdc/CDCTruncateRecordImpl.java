@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCTruncateRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCTruncateRecordImpl 
 extends CDCRecordImpl
 implements CDCTruncateRecord {

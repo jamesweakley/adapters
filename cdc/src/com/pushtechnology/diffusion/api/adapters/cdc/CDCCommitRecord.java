@@ -14,7 +14,6 @@ import java.util.Date;
  * @author pwalsh
  * 
  */
-@Deprecated
 public interface CDCCommitRecord extends CDCRecord {
 
     /**

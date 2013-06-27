@@ -89,7 +89,6 @@ import com.pushtechnology.diffusion.api.internal.adapters.cdc.CDCCaptureEngine;
  * @author dhudson
  * 
  */
-@Deprecated
 public final class CDCConnection implements CDCRecordListener {
 
 	private CDCConnectionDetails theConnectionDetails = null;

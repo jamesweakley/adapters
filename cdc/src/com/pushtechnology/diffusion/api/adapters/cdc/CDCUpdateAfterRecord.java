@@ -11,6 +11,5 @@ package com.pushtechnology.diffusion.api.adapters.cdc;
  * @author pwalsh
  *
  */
-@Deprecated
 public interface CDCUpdateAfterRecord extends CDCOperationRecord {
 }

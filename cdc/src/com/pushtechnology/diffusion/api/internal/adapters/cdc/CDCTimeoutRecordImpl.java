@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCTimeoutRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCTimeoutRecordImpl extends CDCRecordImpl 
 implements CDCTimeoutRecord {
 

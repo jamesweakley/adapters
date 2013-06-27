@@ -10,7 +10,6 @@ import java.util.Vector;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCMetadataRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCMetadataRecordImpl
 extends CDCRecordImpl 
 implements CDCMetadataRecord {

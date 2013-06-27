@@ -10,7 +10,6 @@ import java.util.Date;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCCommitRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCCommitRecordImpl 
 extends CDCRecordImpl
 implements CDCCommitRecord {

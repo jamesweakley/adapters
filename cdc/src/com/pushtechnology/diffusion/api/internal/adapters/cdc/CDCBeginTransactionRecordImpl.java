@@ -10,7 +10,6 @@ import java.util.Date;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCBeginTransactionRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCBeginTransactionRecordImpl 
 extends CDCRecordImpl 
 implements CDCBeginTransactionRecord {

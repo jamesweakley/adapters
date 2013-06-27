@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCDiscardRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCDiscardRecordImpl 
 extends CDCRecordImpl 
 implements CDCDiscardRecord  {

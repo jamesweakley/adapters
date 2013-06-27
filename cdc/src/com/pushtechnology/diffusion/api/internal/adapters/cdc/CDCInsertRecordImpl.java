@@ -7,7 +7,6 @@ package com.pushtechnology.diffusion.api.internal.adapters.cdc;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCInsertRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCInsertRecordImpl 
 extends CDCOperationRecordImpl 
 implements CDCInsertRecord {

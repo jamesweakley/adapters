@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCErrorRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCErrorRecordImpl 
 extends CDCRecordImpl 
 implements CDCErrorRecord {

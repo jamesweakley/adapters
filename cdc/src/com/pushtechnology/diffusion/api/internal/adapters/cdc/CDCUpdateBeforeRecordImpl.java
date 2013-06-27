@@ -7,7 +7,6 @@ package com.pushtechnology.diffusion.api.internal.adapters.cdc;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCUpdateBeforeRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCUpdateBeforeRecordImpl 
 extends CDCOperationRecordImpl 
 implements CDCUpdateBeforeRecord {

@@ -9,7 +9,6 @@ import java.nio.ByteBuffer;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCRollbackRecord;
 
-@SuppressWarnings("deprecation")
 final class CDCRollBackRecordImpl 
 extends CDCRecordImpl 
 implements CDCRollbackRecord {

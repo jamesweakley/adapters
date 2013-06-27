@@ -7,7 +7,6 @@ import java.nio.ByteBuffer;
  * @author pwalsh
  *
  */
-@Deprecated
 public interface CDCRecord {
 
     

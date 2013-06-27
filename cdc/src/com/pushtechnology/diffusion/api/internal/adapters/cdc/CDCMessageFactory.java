@@ -7,7 +7,6 @@ package com.pushtechnology.diffusion.api.internal.adapters.cdc;
 
 import com.pushtechnology.diffusion.api.adapters.cdc.CDCRecord;
 
-@SuppressWarnings("deprecation")
 public final class CDCMessageFactory {
 
     /**

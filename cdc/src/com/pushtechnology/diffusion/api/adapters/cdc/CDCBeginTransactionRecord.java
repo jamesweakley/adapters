@@ -9,7 +9,6 @@ import java.util.Date;
  * @author pwalsh
  * 
  */
-@Deprecated
 public interface CDCBeginTransactionRecord extends CDCRecord {
 
     /**

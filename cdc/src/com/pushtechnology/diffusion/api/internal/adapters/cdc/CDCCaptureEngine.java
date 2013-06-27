@@ -15,7 +15,6 @@ import com.pushtechnology.diffusion.api.adapters.cdc.CDCRecord;
 import com.pushtechnology.diffusion.api.threads.RunnableTask;
 import com.pushtechnology.diffusion.api.threads.ThreadService;
 
-@SuppressWarnings("deprecation")
 public final class CDCCaptureEngine implements RunnableTask {
 
     private boolean thisIsRunning = false;

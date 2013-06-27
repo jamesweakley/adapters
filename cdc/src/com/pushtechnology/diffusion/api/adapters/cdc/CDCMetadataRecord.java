@@ -15,7 +15,6 @@ import java.util.Vector;
  * @author pwalsh
  * 
  */
-@Deprecated
 public interface CDCMetadataRecord extends CDCRecord {
 
     /**
