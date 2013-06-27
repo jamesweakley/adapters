@@ -6,7 +6,6 @@ import org.w3c.dom.Element;
  * RSS Item Element Details.
  *
  */
-@Deprecated
 public final class RSSItem extends RSSElement {
 
 	/**

@@ -6,7 +6,6 @@ import org.w3c.dom.Element;
  * RSS Text Input Element Details.
  *
  */
-@Deprecated
 public final class RSSTextInput extends RSSElement {
 
 	/**

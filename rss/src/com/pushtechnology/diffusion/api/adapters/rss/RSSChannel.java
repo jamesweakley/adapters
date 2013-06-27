@@ -9,7 +9,6 @@ import org.w3c.dom.NodeList;
 /**
  * RSS Channel.
  */
-@Deprecated
 public final class RSSChannel extends RSSElement {
 
 	private List<RSSItem> theItems;

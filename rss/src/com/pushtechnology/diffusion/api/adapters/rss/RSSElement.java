@@ -5,7 +5,6 @@ import org.w3c.dom.Element;
 /**
  * Base class for all RSS Elements.
  */
-@Deprecated
 public abstract class RSSElement {
 
 	private final Element theElement;

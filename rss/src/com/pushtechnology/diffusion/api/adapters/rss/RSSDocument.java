@@ -24,7 +24,6 @@ import com.pushtechnology.diffusion.api.XMLUtils;
  * after which the content retrieved can be accessed using {@link #getChannel()}
  * or if XML is required then {@link #getXMLDocument()} or {@link #getXML()}.
  */
-@Deprecated
 public final class RSSDocument {
 
     private final URL theURL;

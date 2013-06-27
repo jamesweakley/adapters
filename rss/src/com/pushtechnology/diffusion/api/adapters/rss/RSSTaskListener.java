@@ -11,7 +11,6 @@ import com.pushtechnology.diffusion.api.APIException;
  * @author pwalsh
  *
  */
-@Deprecated
 public interface RSSTaskListener {
     
     /**

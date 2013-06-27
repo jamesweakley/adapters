@@ -5,7 +5,6 @@ import org.w3c.dom.Element;
 /**
  * RSS Image element details.
  */
-@Deprecated
 public final class RSSImage extends RSSElement {
 
 	private static final String WIDTH = "width";

@@ -19,7 +19,6 @@ import com.pushtechnology.diffusion.api.threads.ThreadService;
  * 
  * @author pwalsh
  */
-@Deprecated
 public class RSSTask implements RunnableTask {
     
     private RSSDocument theRSSDocument;
