@@ -17,10 +17,10 @@ A CDC adpater is created from the CDCConnectionDetails class :
     CDCConnectionDetails connectionDetails = new
   	    CDCConnectionDetails("//192.168.52.12:9088/syscdcv1");
     connectionDetails.setUsername("informix");
-		connectionDetails.setPassword("********");
-		connectionDetails.setInformixServer("cdctest_net");
-		theCDCConnection = new CDCConnection(connectionDetails);
-		theCDCConnection.connect();
+	connectionDetails.setPassword("********");
+	connectionDetails.setInformixServer("cdctest_net");
+	theCDCConnection = new CDCConnection(connectionDetails);
+	theCDCConnection.connect();
 
 CDC table and column configuration
 ----------------------------------
@@ -32,7 +32,7 @@ Specify the table and columns for CDC capture
   	    "ev_mkt_id,name,status"); 
     final int eventID = theCDCConnection.enableCapture(
         "test:informix.event",
-				"ev_id,ev_name,ev_desc,ev_status");
+		"ev_id,ev_name,ev_desc,ev_status");
 
 CDC capture is enabled (Note: CDC Listeners must be configured first)
 
@@ -44,28 +44,26 @@ a listener so that the CDC messages can be passed to the listener.
 
     theCDCConnection.addCDCRecordListener(new CDCRecordListener() {
         public void onCDCRecord(CDCRecord record) { 
-		        if(record.isMetadataRecord()) {
-			          byte[] data = new byte[record.getPayload().remaining()]; 
-			          ByteBuffer buffer = record.getPayload(); 
-			          buffer.get(data); 
-			          // Display table schema info
-			          System.out.println(new String(data)); 
-			          return;
-		        } 
+            if(record.isMetadataRecord()) {
+                byte[] data = new byte[record.getPayload().remaining()]; 
+			    ByteBuffer buffer = record.getPayload(); 
+			    buffer.get(data); 
+			    // Display table schema info
+                System.out.println(new String(data)); 
+                return;
+            } 
 				
-		        if(record.isOperationalRecord()) {
-			          CDCOperationRecord operationRecord = (CDCOperationRecord)record; 
-
-			          if(operationRecord.getUserData()==outcomeID) { 
-				            CDCOutcomeUpdate outcomeUpdate = new CDCOutcomeUpdate(record);
-				            System.out.println("UUID = " +outcomeUpdate.getUUID());
-				            System.out.println("Updated price = " +outcomeUpdate.getPrice());
-						            ...
-			          }
+	        if(record.isOperationalRecord()) {
+	            CDCOperationRecord operationRecord = (CDCOperationRecord)record; 
+                if(operationRecord.getUserData()==outcomeID) { 
+                    CDCOutcomeUpdate outcomeUpdate = new CDCOutcomeUpdate(record);
+                    System.out.println("UUID = " +outcomeUpdate.getUUID());
+                    System.out.println("Updated price = " +outcomeUpdate.getPrice());
+					...
+                }
             }
         }
     }
-		
 
 In the example above an anonymous listener is used, but it doesn't have to be. Once all
 of the tables are set up then you need to start the data capture.
@@ -111,8 +109,8 @@ To turn off row level capture use the following method on the `CDCConnection`,
 The following example shows how to turn off CDC capture:
 
     theCDCConnection.disableCapture("test:informix.market");
-		theCDCConnection.disableCapture("test:informix.event");
-		theCDCConnection.stopCapture();
+    theCDCConnection.disableCapture("test:informix.event");
+    theCDCConnection.stopCapture();
 		
 Different CDC records
 ---------------------
