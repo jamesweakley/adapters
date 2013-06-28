@@ -9,18 +9,25 @@ you later stop capture and then restart it, you can restart at the point in the 
 data capture was stopped. You cannot go backwards in time through the logical logs to capture the
 history of the table or perform random seeking in the logical logs.
 
+Compilation
+-----------
+
+The CDC adapter requires the Informix JDBC adapter (ifxjdbc.jar), which is shipped separately, by IBM.
+See [IBM's Informix JDBC documentation](http://publib.boulder.ibm.com/infocenter/idshelp/v10/index.jsp?topic=/com.ibm.jdbc_pg.doc/jdbc33.htm)
+for more information.
+
 Using the CDC adapter classes
 -----------------------------
 
 A CDC adpater is created from the CDCConnectionDetails class :
 
     CDCConnectionDetails connectionDetails = new
-  	    CDCConnectionDetails("//192.168.52.12:9088/syscdcv1");
+        CDCConnectionDetails("//192.168.52.12:9088/syscdcv1");
     connectionDetails.setUsername("informix");
-	connectionDetails.setPassword("********");
-	connectionDetails.setInformixServer("cdctest_net");
-	theCDCConnection = new CDCConnection(connectionDetails);
-	theCDCConnection.connect();
+    connectionDetails.setPassword("********");
+    connectionDetails.setInformixServer("cdctest_net");
+    theCDCConnection = new CDCConnection(connectionDetails);
+    theCDCConnection.connect();
 
 CDC table and column configuration
 ----------------------------------
@@ -29,15 +36,15 @@ Specify the table and columns for CDC capture
 
     final int marketID = theCDCConnection.enableCapture(
         "test:informix.market",
-  	    "ev_mkt_id,name,status"); 
+        "ev_mkt_id,name,status"); 
     final int eventID = theCDCConnection.enableCapture(
         "test:informix.event",
-		"ev_id,ev_name,ev_desc,ev_status");
+        "ev_id,ev_name,ev_desc,ev_status");
 
 CDC capture is enabled (Note: CDC Listeners must be configured first)
 
-Listenting to capture events
-----------------------------
+Listening to capture events
+---------------------------
 
 After a enabling table capture but before starting the capture you will need to register
 a listener so that the CDC messages can be passed to the listener.
@@ -46,20 +53,20 @@ a listener so that the CDC messages can be passed to the listener.
         public void onCDCRecord(CDCRecord record) { 
             if(record.isMetadataRecord()) {
                 byte[] data = new byte[record.getPayload().remaining()]; 
-			    ByteBuffer buffer = record.getPayload(); 
-			    buffer.get(data); 
-			    // Display table schema info
+                ByteBuffer buffer = record.getPayload(); 
+                buffer.get(data); 
+                // Display table schema info
                 System.out.println(new String(data)); 
                 return;
             } 
-				
-	        if(record.isOperationalRecord()) {
-	            CDCOperationRecord operationRecord = (CDCOperationRecord)record; 
+                                
+            if(record.isOperationalRecord()) {
+                CDCOperationRecord operationRecord = (CDCOperationRecord)record; 
                 if(operationRecord.getUserData()==outcomeID) { 
                     CDCOutcomeUpdate outcomeUpdate = new CDCOutcomeUpdate(record);
                     System.out.println("UUID = " +outcomeUpdate.getUUID());
                     System.out.println("Updated price = " +outcomeUpdate.getPrice());
-					...
+                                        ...
                 }
             }
         }
@@ -97,7 +104,7 @@ becomes simple. In the example below we are going to be parsing the event column
     theStatus = CDCConnection.getChar(payload);
     theName = CDCConnection.getVarchar(payload);
     theDescription = CDCConnection.getVarchar(payload);
-		
+                
 
 As you can see from the example above there are some helper methods to extract data from
 the `ByteBuffer` payload on the `CDCConnection` class.
@@ -111,7 +118,7 @@ The following example shows how to turn off CDC capture:
     theCDCConnection.disableCapture("test:informix.market");
     theCDCConnection.disableCapture("test:informix.event");
     theCDCConnection.stopCapture();
-		
+                
 Different CDC records
 ---------------------
 

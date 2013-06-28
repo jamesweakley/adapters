@@ -10,7 +10,7 @@
         </fileset>
     </path>
 
-    <target name="default" depends="prepare,twitter,rss,mail,cdc,c2dm,apns" />
+    <target name="default" depends="prepare,twitter,rss,mail,c2dm,apns" />
 
     <target name="twitter" depends="prepare">
       <compile-adapter name="twitter"/>
@@ -27,11 +27,6 @@
       <package-adapter name="mail"/>
     </target>
 
-    <target name="cdc" depends="prepare">
-      <compile-adapter name="cdc"/>
-      <package-adapter name="cdc"/>
-    </target>
-
     <target name="c2dm" depends="prepare">
       <compile-adapter name="c2dm"/>
       <package-adapter name="c2dm"/>
@@ -40,6 +35,11 @@
     <target name="apns" depends="prepare">
       <compile-adapter name="apns"/>
       <package-adapter name="apns"/>
+    </target>
+
+    <target name="cdc" depends="prepare">
+      <compile-adapter name="cdc"/>
+      <package-adapter name="cdc"/>
     </target>
 
     <target name="prepare">
