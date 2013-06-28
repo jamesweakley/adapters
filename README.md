@@ -23,7 +23,7 @@ Each adapter can be built independently, for example:
 
     ant twitter
     
-The default ant target will build all adapters.
+The default ant target will build all adapters except for the CDC adapter, due to its proprietary library requirements.
 
 ## Licence
 
